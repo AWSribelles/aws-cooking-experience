@@ -8,7 +8,7 @@ For workshop instructions, visit [AWS Workshop Studio](https://catalog.us-east-1
 
 If you have an idea for a module or feature in this workshop, or you have found a bug or need to report a problem, let us know!
 
-- [Request a feature](https://github.com/aws-samples/aws-serverless-workshop-innovator-island/issues/new?assignees=&labels=&template=workshop-feature-request.md&title=)
-- [Report an issue](https://github.com/aws-samples/aws-serverless-workshop-innovator-island/issues/new?assignees=&labels=&template=bug_report.md&title=)
+- [Request a feature](https://github.com/AWSribelles/aws-cooking-experience/issues/new?assignees=&labels=&template=workshop-feature-request.md&title=)
+- [Report an issue](https://github.com/AWSribelles/aws-cooking-experience/issues/new?assignees=&labels=&template=bug_report.md&title=)
 
-Contact the author [@jbesw](https://twitter.com/jbesw) for any additional help or support requests.
+Contact the author [@AWSribelles](https://www.github.com/AWSRibelles) for any additional help or support requests.
