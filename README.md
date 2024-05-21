@@ -1,6 +1,6 @@
 ## Welcome to the AWS Cooking Experience!
 
-![InnovatorIsland](./images/innovator-island_logo.png)
+![Cloud Cooking Lab](./images/cloud-cooking-lab.png)
 
 For workshop instructions, visit [AWS Workshop Studio](https://catalog.us-east-1.prod.workshops.aws/workshops/74d0f3be-7108-4bba-8136-00617a988535)
 
