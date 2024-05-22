@@ -1,10 +1,10 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Innovator Island - Flow & Traffic Controller (ride queue times service).
+Description: Cooking Lab - Flow & Traffic Controller (ride queue times service).
 
 Resources:
 
-  # Ride times are published to this topic
+  # Ingredient times are published to this topic
   FATcontroller:
     Type: AWS::SNS::Topic
 
@@ -23,7 +23,7 @@ Resources:
         ReadCapacityUnits: 2
         WriteCapacityUnits: 2     
         
-  # Function to simulate ride times and closures
+  # Function to simulate ingredients preparation times
   UpdateRides:
     Type: AWS::Serverless::Function
     Properties:
@@ -77,5 +77,5 @@ Resources:
 
 Outputs:
   RideUpdatesSNStopic:
-      Description: "SNS topic to receive ride uptime updates"
+      Description: "SNS topic to receive ingredients preparation times updates"
       Value: !Ref FATcontroller
