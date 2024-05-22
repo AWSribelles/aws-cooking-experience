@@ -8,7 +8,7 @@
     "lastUpdated": 0,
     "maxWait": 120,
     "minWait": 20,
-    "rideName": "Beef stock cubes",
+    "ingredientName": "Beef stock cubes",
     "waitChangeRate": 2,
     "thumbnail": "/images/ingredient-beef-stock-cubes.png",
     "image": "/images/ingredient-beef-stock-cubes-large.png"
@@ -22,7 +22,7 @@
     "lastUpdated": 0,
     "maxWait": 60,
     "minWait": 10,
-    "rideName": "Homemade Chili powder",
+    "ingredientName": "Homemade Chili powder",
     "waitChangeRate": 5,
     "thumbnail": "/images/ingredient-homemade-chili-powder.png",
     "image": "/images/ingredient-homemade-chili-powder-large.png"
@@ -36,7 +36,7 @@
     "lastUpdated": 0,
     "maxWait": 65,
     "minWait": 5,
-    "rideName": "Onion",
+    "ingredientName": "Onion",
     "waitChangeRate": 2,
     "thumbnail": "/images/ingredient-onion.png",
     "image": "/images/ingredient-onion-large.png"
@@ -50,7 +50,7 @@
     "lastUpdated": 0,
     "maxWait": 30,
     "minWait": 5,
-    "rideName": "Garlic",
+    "ingredientName": "Garlic",
     "waitChangeRate": 1,
     "thumbnail": "/images/ingredient-garlic.png",
     "image": "/images/ingredient-garlic-large.png"
@@ -64,7 +64,7 @@
     "lastUpdated": 0,
     "maxWait": 45,
     "minWait": 15,
-    "rideName": "Red kidney beans",
+    "ingredientName": "Red kidney beans",
     "waitChangeRate": 2,
     "thumbnail": "/images/ingredient-red-kidney-beans.png",
     "image": "/images/ingredient-red-kidney-beans-large.png"
@@ -78,7 +78,7 @@
     "lastUpdated": 0,
     "maxWait": 90,
     "minWait": 25,
-    "rideName": "Canned tomato",
+    "ingredientName": "Canned tomato",
     "waitChangeRate": 6,
     "thumbnail": "/images/canned-tomato-paste.png",
     "image": "/images/canned-tomato-paste-large.png"
@@ -92,7 +92,7 @@
     "lastUpdated": 0,
     "maxWait": 60,
     "minWait": 30,
-    "rideName": "Tomato paste",
+    "ingredientName": "Tomato paste",
     "waitChangeRate": 1,
     "thumbnail": "/images/ingredient-tomato-paste.png",
     "image": "/images/ingredient-tomato-paste-large.png"
