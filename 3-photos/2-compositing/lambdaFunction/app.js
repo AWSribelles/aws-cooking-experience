@@ -49,15 +49,15 @@ exports.handler = async (event) => {
 
   // Select random background (1-4 available)
   const random = Math.ceil(Math.random()*4)
-  const background = await Jimp.read( `https://d15l97sovqpx31.cloudfront.net/images/composite-bg${random}.png`) // theme park background
+  const background = await Jimp.read( `https://d2cmsyo2mi5opc.cloudfront.net/bg1.png`) // theme park background
   const branding = await Jimp.read('https://d15l97sovqpx31.cloudfront.net/images/edge-decor-600x1000.png') // branding frame
 
   // Composite background with greenscreen foreground (foreground in front - added vertical offset of 130px)
-  const x = (background.bitmap.width/2) - (foreground.bitmap.width/2) // updated code here to center photo on background
+  const x = (background.bitmap.width/2) - (foreground.bitmap.width/2) - 100 // updated code here to center photo on background
   let composited = await background.composite(foreground, x, 130, { mode: Jimp.BLEND_SOURCE_OVER })
 
   // Composite with branding frame (branding in front)
-  composited = await composited.composite(branding, 0, 0, { mode: Jimp.BLEND_SOURCE_OVER })
+ // composited = await composited.composite(branding, 0, 0, { mode: Jimp.BLEND_SOURCE_OVER })
 
   // Save to temp location as JPEG
   const output_filename = params.Key.replace('.png', '.jpg')
