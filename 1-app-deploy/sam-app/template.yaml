@@ -108,7 +108,7 @@ Resources:
   # Resources for realtime messaging       #
   ##########################################
 
-  ThemeParkRealtime:
+  KitchenRealtime:
       Type: "AWS::IoT::Thing"
       Properties:
           ThingName: "kitchen-realtime"
