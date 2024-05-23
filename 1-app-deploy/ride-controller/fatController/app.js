@@ -50,7 +50,7 @@ const updateRideState = (ride => {
       ride.inService = false
       ride.wait = (5 * ride.waitChangeRate)
       ride.targetWait = 0
-      console.log(`${ride.ID}: Closure on ride`)
+      console.log(`${ride.ID}: Ingredient not available`)
       return ride
     }
   }

@@ -4,10 +4,10 @@ Description: module3-controller
 Parameters:
   DynamoDBTableName:
     Type: String
-    Description: Main Theme Park app table
+    Description: Main Kitchen app table
   IOTendpoint:
     Type: String
-    Description: Theme Park IoT endpoint
+    Description: Kitchen IoT endpoint
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -28,7 +28,7 @@ Resources:
         Variables:
           DDB_TABLE_NAME: !Ref DynamoDBTableName
           IOT_DATA_ENDPOINT: !Ref IOTendpoint
-          IOT_TOPIC: 'theme-park-rides'
+          IOT_TOPIC: 'kitchen-rides'
       Policies:
       - Statement:
           - Effect: Allow

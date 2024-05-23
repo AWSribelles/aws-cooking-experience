@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Innovator Island - Theme park backend
+Description: Cooking Lab - Kitchen backend
   
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -111,14 +111,14 @@ Resources:
   ThemeParkRealtime:
       Type: "AWS::IoT::Thing"
       Properties:
-          ThingName: "theme-park-realtime"
+          ThingName: "kitchen-realtime"
           AttributePayload: 
               Attributes: {}  
 
   UserPool:
     Type: "AWS::Cognito::UserPool"
     Properties:
-      UserPoolName: ThemeParkUserPool
+      UserPoolName: KitchenUserPool
       MfaConfiguration: "OFF"
       Schema:
         - Name: email
@@ -130,7 +130,7 @@ Resources:
   UserPoolClient:
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: ThemeParkUserPoolClient
+      ClientName: KitchenUserPoolClient
       GenerateSecret: false
       UserPoolId: !Ref UserPool
   
@@ -138,7 +138,7 @@ Resources:
   IdentityPool:
     Type: "AWS::Cognito::IdentityPool"
     Properties:
-      IdentityPoolName: ThemeParkIdentityPool
+      IdentityPoolName: KitchenIdentityPool
       AllowUnauthenticatedIdentities: true
       CognitoIdentityProviders: 
         - ClientId: !Ref UserPoolClient
@@ -173,7 +173,7 @@ Resources:
               - Effect: Allow
                 Action:
                   - iot:Connect
-                Resource: !Join [ "", [ "arn:aws:iot:", !Ref "AWS::Region", ":", !Ref "AWS::AccountId", ":client/theme*" ] ]
+                Resource: !Join [ "", [ "arn:aws:iot:", !Ref "AWS::Region", ":", !Ref "AWS::AccountId", ":client/kitchen*" ] ]
               - Effect: Allow
                 Action:
                   - iot:Subscribe
@@ -212,7 +212,7 @@ Resources:
               - Effect: Allow
                 Action:
                   - iot:Connect
-                Resource: !Join [ "", [ "arn:aws:iot:", !Ref "AWS::Region", ":", !Ref "AWS::AccountId", ":client/theme*" ] ]
+                Resource: !Join [ "", [ "arn:aws:iot:", !Ref "AWS::Region", ":", !Ref "AWS::AccountId", ":client/kitchen*" ] ]
               - Effect: Allow
                 Action:
                   - iot:Subscribe
@@ -248,7 +248,7 @@ Resources:
               Service:
               - lambda.amazonaws.com
       Policies:
-      - PolicyName: ThemeParkAccess
+      - PolicyName: KitchenAccess
         PolicyDocument:
           Version: 2012-10-17      
           Statement:
@@ -292,7 +292,7 @@ Resources:
             Resource: !Sub arn:aws:s3:::${FinalBucket}/*
             Condition:
               ArnLike:
-                AWS:SourceArn: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:theme-park-photos-CompositeFunction
+                AWS:SourceArn: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:kitchen-photos-CompositeFunction
           - Sid: AllowCloudFrontServicePrincipal
             Effect: Allow
             Principal:
@@ -349,7 +349,7 @@ Outputs:
     Export:
       Name: "IdentityPool::Id"    
   IotTopic:
-    Value: !Ref ThemeParkRealtime
+    Value: !Ref KitchenRealtime
   UploadBucketName:
     Value: !Ref UploadBucket
   ProcessingBucketName:
