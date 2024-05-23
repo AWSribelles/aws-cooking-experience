@@ -235,7 +235,7 @@ Resources:
   # Resources for Custom Role for user Lambda functions #
   #######################################################
   
-  ThemeParkLambdaRole:
+  KitchenLambdaRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
