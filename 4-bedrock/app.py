@@ -164,13 +164,14 @@ class Claude3Wrapper:
 
 def lambda_handler(event, context):
     # Retrieve the prompt and S3 details from the event
-    print(event)
-    body = json.loads(event['body'])
-    prompt = body["prompt"]
+    print(event['queryStringParameters'])
+    prompt = urllib.parse.unquote(event['queryStringParameters']['prompt'])
+    s3_key = urllib.parse.unquote(event['queryStringParameters']['s3_key'])
+    print(prompt)
+    print(s3_key)
     additional_prompt = "Please limit the output to less than 300 words and 4 paragraphs"
     full_prompt = f"{prompt}. {additional_prompt}"
     s3_bucket = os.environ.get('INPUT_BUCKET')
-    s3_key = body["s3_key"]
 
     client = boto3.client(service_name="bedrock-runtime", region_name="us-west-2")
     dynamodb = boto3.client('dynamodb')
