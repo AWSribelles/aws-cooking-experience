@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  AWS SAM template for creating a Lambda function with S3 and Bedrock Invoke API access,
+  and adding it to an existing API Gateway.
+
+Parameters:
+  FinalBucketName:
+    Type: String
+    Description: Name of the final S3 bucket
+
+Resources:
+  LambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      MemorySize: 2048
+      Timeout: 60
+      Environment:
+        Variables:
+          INPUT_BUCKET: !Ref FinalBucketName
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - S3CrudPolicy:
+            BucketName: !Ref FinalBucketName
+        - Statement:
+          - Effect: Allow
+            Action:
+              - bedrock:InvokeModel
+            Resource: "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-haiku-20240307-v1:0"
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /describeimage
+            Method: POST
+Outputs:
+  ApiGwUrl:
+    Description: "API Gateway endpoint URL for Prod stage for GenAI menu description generation"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/describeimage"
+    
+  
