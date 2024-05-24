@@ -167,6 +167,8 @@ def lambda_handler(event, context):
     print(event)
     body = json.loads(event['body'])
     prompt = body["prompt"]
+    additional_prompt = "Please limit the output to less than 300 words and 4 paragraphs"
+    full_prompt = f"{prompt}. {additional_prompt}"
     s3_bucket = os.environ.get('INPUT_BUCKET')
     s3_key = body["s3_key"]
 
@@ -176,7 +178,7 @@ def lambda_handler(event, context):
 
     # Invoke Claude 3 with a multimodal prompt (text and image)
     print(f"Invoking Claude 3 Haiku with '{prompt}' and '{s3_bucket}/{s3_key}'...")
-    response_content = wrapper.invoke_claude_3_multimodal(prompt, s3_bucket, s3_key)
+    response_content = wrapper.invoke_claude_3_multimodal(full_prompt, s3_bucket, s3_key)
 
     response = {
         "statusCode": 200,
