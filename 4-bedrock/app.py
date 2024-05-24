@@ -184,31 +184,9 @@ def lambda_handler(event, context):
     response = {
         "statusCode": 200,
         "headers": {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
         },
         "body": json.dumps(response_content)
     }
-    '''
-    text = response_content["content"][0]["text"]
-    id = str(random.randint(100, 999))
-    item = {
-    'ID': {'S': id},
-    'S3Bucket': {'S': s3_bucket},
-    'S3Key': {'S': s3_key},
-    'PromptOut': {'S': text}
-    }
-    table_name = os.environ.get('DYNAMODB_TABLE_NAME')
-    dynamodb.put_item(
-        TableName=table_name,
-        Item=item
-    )
-    response = {
-        "statusCode": 200,
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "body": "Successful"
-    }
-    '''
     return response
-    #return response
