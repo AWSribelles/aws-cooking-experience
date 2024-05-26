@@ -36,7 +36,7 @@ def upload_file(file_name, bucket, object_name=None):
 
 def scale_image(image):
     _image = image
-    target_height = 800
+    target_height = 600
 
     height, width, channels = _image.shape
     logger.info('Original size: {}h x {}w'.format(height, width))
