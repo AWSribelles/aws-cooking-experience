@@ -3,6 +3,7 @@ import json
 import logging
 import random
 import os
+import urllib.parse
 
 import boto3
 from botocore.exceptions import ClientError
