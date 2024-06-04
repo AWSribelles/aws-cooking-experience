@@ -35,7 +35,7 @@ Resources:
           Type: Api
           Properties:
             Path: /describeimage
-            Method: POST
+            Method: GET
 Outputs:
   ApiGwUrl:
     Description: "API Gateway endpoint URL for Prod stage for GenAI menu description generation"
